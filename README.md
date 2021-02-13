@@ -1,3 +1,4 @@
+
 # Adopt Don't Shop
 
 In this project, students will build upon the code in this repo to create a Pet Adoption Platform. Users will be able to apply to adopt pets, and Admins will be able to approve or reject applications and see statistics for the Shelters, Pets, and Applications in the system.
@@ -32,7 +33,7 @@ During your Check In, you should be prepared to review your database schema for 
 ## Deploy
 
 ```
-[ ] done
+[X] done
 
 Deploy your application to Heroku
 
