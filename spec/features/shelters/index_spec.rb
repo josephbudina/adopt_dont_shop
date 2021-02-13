@@ -32,6 +32,7 @@ RSpec.describe 'Shelters index page' do
     visit "/shelters"
 
     within "#shelter-#{@shelter1.id}" do
+
       expect(page).to have_content("Shady Shelter")
       click_link "Delete Shelter"
     end
