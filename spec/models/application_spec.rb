@@ -12,8 +12,5 @@ describe Application, type: :model do
     it {should validate_presence_of :city}
     it {should validate_presence_of :state}
     it {should validate_presence_of :zip}
-    it {should validate_presence_of :applicant_discription}
-    it {should validate_presence_of :pet_names}
-    it {should validate_presence_of :status}
   end
 end
