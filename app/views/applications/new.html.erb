@@ -1,4 +1,14 @@
 <%= form_tag "/applications" do %>
+<% if @application.errors.any? %>
+    <div id="error_explanation">
+      <h2>There Were Some Errors:</h2>
+      <ul>
+        <% @application.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <h2>Fill Out a New Application</h2>
   <%= label_tag :name %>
   <%= text_field_tag :name %><br>
