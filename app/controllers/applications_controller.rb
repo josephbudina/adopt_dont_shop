@@ -4,12 +4,18 @@ class ApplicationsController < ApplicationController
   end
 
   def new
-    @application = Application.new
   end
 
   def create
-    @application = Application.create!(application_params)
-    redirect_to "/applications/#{@application.id}"
+    # binding.pry
+    @application = Application.new(application_params)
+    # binding.pry
+    if @application.valid?
+      @application = Application.create!(application_params)
+      redirect_to "/applications/#{@application.id}"
+    else
+      render :new
+    end
   end
 
   private
