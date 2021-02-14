@@ -60,14 +60,16 @@ RSpec.describe 'Pets index page' do
   end
 
   it "sees start applcation link" do
+    visit "/pets"
+    
     click_link "Start an Application"
 
     expect(current_path).to eq("/applications/new")
 
     expect(page).to have_content("Name")
-    expect(page).to have_content("Street Address")
+    expect(page).to have_content("Street address")
     expect(page).to have_content("City")
     expect(page).to have_content("State")
-    expect(page).to have_content("Zip Code")
+    expect(page).to have_content("Zip")
   end
 end

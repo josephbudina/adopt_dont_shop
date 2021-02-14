@@ -6,9 +6,9 @@ class CreateApplications < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :state
       t.integer :zip
-      t.string :applicant_discription
+      t.string :applicant_description
       t.string :pet_names
-      t.string :status
+      t.string :status => "In Progress"
     end
   end
 end
