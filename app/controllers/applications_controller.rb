@@ -4,5 +4,16 @@ class ApplicationsController < ApplicationController
   end
 
   def new
+    @application = Application.new
+  end
+
+  def create
+    @application = Application.create!(application_params)
+    redirect_to "/applications/#{@application.id}"
+  end
+
+  private
+  def application_params
+    params.permit(:name, :street_address, :city, :state, :zip, :applicant_description, :pet_names, :status)
   end
 end
