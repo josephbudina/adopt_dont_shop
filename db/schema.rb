@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2021_02_13_030330) do
     t.string "applicant_description"
     t.string "pet_names"
     t.string "status", default: "In Progress"
-    t.string "string", default: "In Progress"
   end
 
   create_table "pet_applications", force: :cascade do |t|
