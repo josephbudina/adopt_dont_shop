@@ -9,4 +9,12 @@ class Pet < ApplicationRecord
             }
 
   enum sex: [:female, :male]
+
+  def self.search(input)
+    if input
+      pet_names = Pet.where("name LIKE ?", "#{input}")
+    else
+      @pets = Pet.all
+    end
+  end
 end

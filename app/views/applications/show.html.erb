@@ -1,5 +1,14 @@
-<h2>Name: <%= "#{@application.name}" %></h2>
+Name: <%= "#{@application.name}" %>
 Address: <%= "#{@application.street_address} #{@application.city}, #{@application.state}, #{@application.zip}" %><br>
 Description: <%= @application.applicant_description %><br>
 Pet Names: <%= @application.pet_names %><br>
 Application Status: <%= @application.status %>
+
+<h2>Add a Pet to this Application:</h2>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag ("Find Pets by Name")%>
+  <% @pets.each do |pet| %>
+    <ul>
+      <li><%= link_to pet.name, "/applications/new" %></li><br>
+    </ul>
+  <% end %>
