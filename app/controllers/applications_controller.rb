@@ -1,15 +1,15 @@
 class ApplicationsController < ApplicationController
   def show
     @application = Application.find(params[:id])
+    @pets = Pet.search(params[:search])
   end
 
   def new
+    @application = Application.new(application_params)
   end
 
   def create
-    # binding.pry
     @application = Application.new(application_params)
-    # binding.pry
     if @application.valid?
       @application = Application.create!(application_params)
       redirect_to "/applications/#{@application.id}"

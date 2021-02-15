@@ -40,5 +40,11 @@ describe Pet, type: :model do
       expect(pet.female?).to be(true)
       expect(pet.male?).to be(false)
     end
+
+    it 'can be searched for' do
+      shelter = Shelter.create!(name: 'Pet Rescue', address: '123 Adoption Ln.', city: 'Denver', state: 'CO', zip: '80222')
+      pet = shelter.pets.create!(name: "Fluffy", approximate_age: 3, sex: 'male', description: 'super cute')
+      expect(Pet.search("fluffy")).to eq([pet])
+    end
   end
 end
