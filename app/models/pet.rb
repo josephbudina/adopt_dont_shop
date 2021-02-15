@@ -12,7 +12,7 @@ class Pet < ApplicationRecord
 
   def self.search(input)
     if input
-      pet_names = Pet.where("name LIKE ?", "#{input}")
+      pet_names = Pet.where("lower(name) LIKE ?", "%#{input.downcase}%")
     else
       @pets = Pet.all
     end

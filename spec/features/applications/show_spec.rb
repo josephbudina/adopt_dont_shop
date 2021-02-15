@@ -27,7 +27,6 @@ RSpec.describe 'Application show page' do
     describe "if app hasn't been submitted" do
       it "sees section on page to Add Pet to this Application" do
         visit "/applications/#{@application_1.id}"
-        save_and_open_page
         expect(page).to have_content("Add a Pet to this Application:")
 
         fill_in 'search', with: "Thor"
