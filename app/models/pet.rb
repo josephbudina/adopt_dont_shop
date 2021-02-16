@@ -13,8 +13,6 @@ class Pet < ApplicationRecord
   def self.search(input)
     if input
       @pets = Pet.where("lower(name) LIKE ?", "%#{input.downcase}%")
-    else
-      @pets = Pet.all
     end
   end
 end
