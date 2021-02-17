@@ -19,10 +19,15 @@ class ApplicationsController < ApplicationController
   end
 
   def update
-    application = Application.find(params[:id])
-
-    application.update(application_params)
-    redirect_to "/applications/#{application.id}"
+    @application = Application.find(params[:id])
+    if params[:applicant_description] == ""
+      flash[:notice] = "Please fill out description."
+      render :show
+    elsif params[:commit] == "Submit Application"
+      application.update(application_params)
+      application.update(status: "Pending")
+      redirect_to "/applications/#{application.id}"
+    end
   end
 
   private

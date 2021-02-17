@@ -11,7 +11,9 @@ class Pet < ApplicationRecord
   enum sex: [:female, :male]
 
   def self.search(input)
-    if input
+    if input == ""
+      @pets = nil
+    elsif input
       @pets = Pet.where("lower(name) LIKE ?", "%#{input.downcase}%")
     end
   end
