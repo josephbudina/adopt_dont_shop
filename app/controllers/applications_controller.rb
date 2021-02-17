@@ -18,6 +18,18 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def update
+    @application = Application.find(params[:id])
+    if params[:applicant_description] == ""
+      flash[:notice] = "Please fill out description."
+      render :show
+    elsif params[:commit] == "Submit Application"
+      application.update(application_params)
+      application.update(status: "Pending")
+      redirect_to "/applications/#{application.id}"
+    end
+  end
+
   private
   def application_params
     params.permit(:name, :street_address, :city, :state, :zip, :applicant_description, :pet_names, :status)
