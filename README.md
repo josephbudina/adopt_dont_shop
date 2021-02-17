@@ -132,7 +132,7 @@ And I see the Pet I want to adopt listed on this application
 ```
 
 ```
-[ ] done
+[X] done
 
 Submit an Application
 
@@ -150,7 +150,7 @@ And I do not see a section to add more pets to this application
 ```
 
 ```
-[ ] done
+[X] done
 
 No Pets on an Application
 
@@ -161,7 +161,7 @@ Then I do not see a section to submit my application
 ```
 
 ```
-[ ] done
+[X] done
 
 Partial Matches for Pet Names
 
@@ -173,7 +173,7 @@ For example, if I search for "fluff", my search would match pets with names "flu
 ```
 
 ```
-[ ] done
+[X] done
 
 Case Insensitive Matches for Pet Names
 

@@ -22,7 +22,6 @@ RSpec.describe 'Application show page' do
     expect(page).to have_content(@application_1.state)
     expect(page).to have_content(@application_1.zip)
     expect(page).to have_content(@application_1.applicant_description)
-    expect(page).to have_content(@application_1.pet_names)
     expect(page).to have_content(@application_1.status)
   end
 
@@ -50,6 +49,26 @@ RSpec.describe 'Application show page' do
 
     click_on "Adopt this Pet"
     expect(current_path).to eq("/applications/#{@application_1.id}")
+    expect(page).to have_content("Thor")
+  end
+
+  it "submits an application" do
+    visit "/applications/#{@application_1.id}"
+
+    fill_in 'search', with: "Thor"
+    click_on 'Find Pets by Name'
+    click_on "Adopt this Pet"
+
+    expect(page).to have_button("Submit Application")
+    expect(page).to have_content("why I would make a good owner for these pet(s)")
+
+    fill_in 'applicant_description', with: 'Sample Discription'
+    click_on value="Submit Application"
+
+    expect(current_path).to eq("/applications/#{@application_1.id}")
+    expect(page).to have_content("Pending")
+    expect(page).to_not have_button("Find Pets by Name")
+    expect(page).to_not have_button("Adopt this Pet")
     expect(page).to have_content("Thor")
   end
 end
