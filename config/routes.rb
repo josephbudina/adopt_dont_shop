@@ -29,4 +29,8 @@ Rails.application.routes.draw do
 
   post "/pet_applications", to: "pet_applications#create"
   patch "/applications/:id", to: "applications#update"
+
+  namespace :admin do
+    resources :applications
+  end
 end

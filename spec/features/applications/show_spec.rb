@@ -60,7 +60,7 @@ RSpec.describe 'Application show page' do
     click_on "Adopt this Pet"
 
     expect(page).to have_button("Submit Application")
-    expect(page).to have_content("why I would make a good owner for these pet(s)")
+    expect(page).to have_content("Why I would make a good owner for these pet(s)")
 
     fill_in 'applicant_description', with: 'Sample Discription'
     click_on value="Submit Application"
