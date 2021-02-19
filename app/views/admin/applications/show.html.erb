@@ -1,0 +1,15 @@
+Pet Names: <% @application.pets.each do |pet| %>
+              <%= pet.name %>
+           <% end %><br>
+<% @pets.each do |pet| %>
+      <div id="pet_id-<%= pet.id %>">
+        <ul>
+          <li><%= link_to pet.name, "/pets/#{pet.id}" %></li>
+            <%= form_tag "/pet_applications" do %>
+              <%= hidden_field_tag :pet_id, pet.id %>
+              <%= hidden_field_tag :application_id, @application.id%>
+              <%= submit_tag "Approve" %>
+            <% end %>
+        </ul>
+      </div>
+      <% end %>
